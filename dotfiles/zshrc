@@ -21,8 +21,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PYTHONPATH=/usr/lib/python3.3/site-packages
-export PATH="PYTHONPATH:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/core_perl"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/core_perl"
 
 alias c="cd"
 alias cl="clear"
