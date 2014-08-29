@@ -17,6 +17,11 @@ Xft.hintstyle: hintslight
 
 URxvt.termName: screen-256color
 
+# Keysyms
+
+# mimic C-right for emacs
+URxvt.keysym.C-semicolon: \033[1;5C
+
 URxvt.depth: 32
 URxvt.transparent: false
 URxvt.fading: 0
@@ -29,8 +34,8 @@ URxvt.lineSpace: 0
 
 ! Fonts
 URxvt.allow_bold: true
-URxvt.font: xft:Meslo LG S DZ for Powerline:pixelsize=17
-URxvt.boldFont: xft:Meslo LG S DZ for Powerline:pixelsize=17
+URxvt.font: xft:Meslo LG S DZ for Powerline:pixelsize=19
+URxvt.boldFont: xft:Meslo LG S DZ for Powerline:pixelsize=19
 
 ! Fix font space
 URxvtURxvtletterSpace: -1

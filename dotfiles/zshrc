@@ -18,6 +18,7 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(git tmux node npm pip bower)
 
 source $ZSH/oh-my-zsh.sh
+source ~/.nvm/nvm.sh
 
 # User configuration
 
@@ -25,7 +26,11 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/core_perl"
 
 alias c="cd"
 alias cl="clear"
+alias rd="rm -rf"
+
+alias n="nautilus --no-desktop&"
+alias g="git"
 alias e="emacs -nw"
 
 # automatically start tmux session
-if [ "$TMUX" = "" ]; then tmux; fi
+if [ "$TMUX" = "" ]; then tmux attach || tmux new -s sesh; fi
