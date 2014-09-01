@@ -32,5 +32,16 @@ alias n="nautilus --no-desktop&"
 alias g="git"
 alias e="emacs -nw"
 
-# automatically start tmux session
-if [ "$TMUX" = "" ]; then tmux attach || tmux new -s sesh; fi
+#archey3
+
+# automatically attach/start a tmux session
+if [[ $TMUX == "" ]]; then
+    tmux attach || tmux new -s sesh
+fi
+
+# load up default npm version
+if [[ $(nvm_ls_current) == none ]]; then
+    nvm use 0.10
+else
+    print "Using:" $(nvm_ls_current)
+fi
