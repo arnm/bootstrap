@@ -12,7 +12,6 @@ setup_dots() {
     curl -L https://github.com/bpinto/oh-my-fish/raw/master/tools/install.fish | fish
     curl https://raw.githubusercontent.com/Alex7Kom/nvm-fish/master/install.fish | fish
 
-
     rm -rf ~/.i3
     rm -rf ~/.config/fish
 
@@ -26,6 +25,7 @@ setup_dots() {
 }
 
 setup_dots
+setup_emacs
 
 
 
