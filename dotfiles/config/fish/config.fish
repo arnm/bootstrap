@@ -28,6 +28,7 @@ end
 source ~/.nvm-fish/nvm.fish
 
 function c; cd $argv; end
+function cl; clear; end
 function e; emacs -nw $argv; end
 function l; ls -lah $argv; end
 function n; nautilus --no-desktop& $argv; end
