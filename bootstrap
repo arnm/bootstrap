@@ -1,8 +1,9 @@
 #!/bin/sh
 
-setup_emacs() {
-    git clone --recursive https://github.com/arnm/emacs.d ~/.emacs.d
-    ~/.emacs.d/setup
+setup_packages() {
+    sudo pacman -S yaourt
+    sudo yaourt -S --needed $(< ~/bootstrap/pkglist.txt)
+    chsh -s /usr/bin/fish
 }
 
 setup_dots() {
@@ -24,6 +25,12 @@ setup_dots() {
     ln -sf $dot/config/fish ~/.config/fish
 }
 
+setup_emacs() {
+    git clone --recursive https://github.com/arnm/emacs.d ~/.emacs.d
+    ~/.emacs.d/setup
+}
+
+setup_packages
 setup_dots
 setup_emacs
 
