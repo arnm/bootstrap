@@ -3,20 +3,18 @@
 setup_packages() {
     sudo pacman -S yaourt
     sudo yaourt -S --needed $(< ~/bootstrap/pkglist.txt)
+
+    curl -L https://github.com/bpinto/oh-my-fish/raw/master/tools/install.fish | fish
+    curl https://raw.githubusercontent.com/Alex7Kom/nvm-fish/master/install.fish | fish
     chsh -s /usr/bin/fish
 }
 
 setup_dots() {
+    local dot=~/bootstrap/dotfiles
 
     rm -rf ~/.oh-my-fish
-
-    curl -L https://github.com/bpinto/oh-my-fish/raw/master/tools/install.fish | fish
-    curl https://raw.githubusercontent.com/Alex7Kom/nvm-fish/master/install.fish | fish
-
     rm -rf ~/.i3
     rm -rf ~/.config/fish
-
-    local dot=~/bootstrap/dotfiles
 
     ln -sf $dot/Xdefaults ~/.Xdefaults
     ln -sf $dot/tmux.conf ~/.tmux.conf
