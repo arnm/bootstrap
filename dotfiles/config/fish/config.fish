@@ -27,11 +27,25 @@ end
 
 source ~/.nvm-fish/nvm.fish
 
+function prepend-to-path -d "Prepend the given dir to PATH"
+    if test -d $argv[1]
+	if not contains $argv[1] $PATH
+	    set -gx PATH "$argv[1]" $PATH
+	end
+    end
+end
+
+prepend-to-path "$HOME/bootstrap/scripts"
+
+set -g -x EDITOR e
+
 function c; cd $argv; end
 function cl; clear; end
 function e; emacs -nw $argv; end
 function l; ls -lah $argv; end
+function md; mkdir -p $argv; end
 function n; nautilus --no-desktop& $argv; end
+function rd; rm -rf $argv; end
 
 function eb; e ~/bootstrap/bootstrap; end
 function ef; e ~/bootstrap/dotfiles/config/fish/config.fish; end
