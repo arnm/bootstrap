@@ -48,10 +48,11 @@ function n; nautilus --no-desktop& $argv; end
 function rd; rm -rf $argv; end
 
 function eb; e ~/bootstrap/bootstrap; end
-function ef; e ~/bootstrap/dotfiles/config/fish/config.fish; end
-function et; e ~/bootstrap/dotfiles/tmux.conf; end
-function ei; e ~/bootstrap/dotfiles/i3/config; end
 function ee; e ~/.emacs.d/init.el; end
+function ef; e ~/bootstrap/dotfiles/config/fish/config.fish; end
+function ei; e ~/bootstrap/dotfiles/i3/config; end
+function et; e ~/bootstrap/dotfiles/tmux.conf; end
+function ex; e ~/bootstrap/dotfiles/Xdefaults; end
 
 function setup-nvm -d "Init version of node"
     if test (nvm use $argv[1]) = "N/A version is not installed yet"
