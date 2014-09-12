@@ -22,11 +22,6 @@ end
 # Path to your custom folder (default path is $FISH/custom)
 #set fish_custom $HOME/dotfiles/oh-my-fish
 
-# Load oh-my-fish configuration.
-. $fish_path/oh-my-fish.fish
-
-source ~/.nvm-fish/nvm.fish
-
 function prepend-to-path -d "Prepend the given dir to PATH"
     if test -d $argv[1]
 	if not contains $argv[1] $PATH
@@ -36,8 +31,27 @@ function prepend-to-path -d "Prepend the given dir to PATH"
 end
 
 prepend-to-path "$HOME/bootstrap/scripts"
+prepend-to-path "$HOME/.gem/ruby/2.1.0/bin"
 
+# Load oh-my-fish configuration.
+. $fish_path/oh-my-fish.fish
+
+# Node version manager
+# https://github.com/Alex7Kom/nvm-fish
+source ~/.nvm-fish/nvm.fish
+
+# virtualenv for fish
+# https://github.com/adambrenecki/virtualfish
+set -g -x PROJECT_HOME ~/Dev/python/workspace/
+set -g VIRTUALFISH_COMPAT_ALIASES # virtualenvwrapper-style cmds
+. $HOME/.config/fish/plugins/virtualfish/virtual.fish
+. $HOME/.config/fish/plugins/virtualfish/auto_activation.fish
+. $HOME/.config/fish/plugins/virtualfish/global_requirements.fish
+. $HOME/.config/fish/plugins/virtualfish/projects.fish
+
+# Env variables
 set -g -x EDITOR e
+set -g -x RUST_SRC_PATH $HOME/Dev/rust/tools/rust/src
 
 function c; cd $argv; end
 function cl; clear; end
@@ -60,6 +74,12 @@ function setup-nvm -d "Init version of node"
     end
 end	
 
+function setup-pyenv -d "Init version of python"
+    if not set -q VIRTUAL_ENV
+	workon default
+    end
+end
+
 function setup-tmux -d "Attach || create tmux session"
     if test (echo $TMUX) = ""
 	tmux new-session -s $argv[1]
@@ -68,8 +88,6 @@ function setup-tmux -d "Attach || create tmux session"
 end
 
 setup-nvm 0.10
+setup-pyenv
 setup-tmux sesh
-
-
-
 
