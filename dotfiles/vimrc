@@ -1,0 +1,50 @@
+
+set nocompatible
+set relativenumber
+set number
+
+noremap j h
+noremap k j
+noremap l k
+noremap ; l
+
+nnoremap <C-j> <C-w>h
+nnoremap <C-k> <C-w>j
+nnoremap <C-l> <C-w>k
+nnoremap <C-;> <C-w>l
+
+inoremap jk <esc>
+inoremap kj <esc>
+
+let mapleader = ','
+nnoremap <leader>s :split<cr>
+nnoremap <leader>v :vsplit<cr>
+nnoremap <leader>c :quit<cr>
+nnoremap <leader>q :qa<cr>
+nnoremap <leader>Q :qa!<cr>
+nnoremap <leader>w :w<cr>
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'bling/vim-airline'
+let g:airline_powerline_fonts = 1
+let g:airline_theme = "powerlineish"
+
+Plug 'chriskempson/vim-tomorrow-theme'
+
+Plug 'kien/ctrlp.vim'
+
+Plug 'Lokaltog/vim-easymotion'
+map <Space>j <Plug>(easymotion-linebackward)
+map <Space>k <Plug>(easymotion-j)
+map <Space>l <Plug>(easymotion-k)
+map <Space>; <Plug>(easymotion-lineforward)
+map <Space>w <Plug>(easymotion-w)
+
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+
+call plug#end()
+
+colorscheme Tomorrow-Night-Bright

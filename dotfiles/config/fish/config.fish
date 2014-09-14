@@ -60,12 +60,14 @@ function l; ls -lah $argv; end
 function md; mkdir -p $argv; end
 function n; nautilus --no-desktop& $argv; end
 function rd; rm -rf $argv; end
+function v; vim $argv; end
 
 function eb; e ~/bootstrap/bootstrap; end
 function ee; e ~/.emacs.d/init.el; end
 function ef; e ~/bootstrap/dotfiles/config/fish/config.fish; end
 function ei; e ~/bootstrap/dotfiles/i3/config; end
 function et; e ~/bootstrap/dotfiles/tmux.conf; end
+function ev; e ~/bootstrap/dotfiles/vimrc; end
 function ex; e ~/bootstrap/dotfiles/Xdefaults; end
 
 function setup-nvm -d "Init version of node"
