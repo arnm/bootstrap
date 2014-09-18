@@ -18,6 +18,7 @@ Xft.hintstyle: hintslight
 URxvt.termName: screen-256color
 
 URxvt.keysym.C-semicolon: \033[1;5C
+URxvt.keysym.C-Tab: \033[34~
 
 urxvt.depth: 32
 URxvt.transparent: false
@@ -52,7 +53,6 @@ URxvt.cursorUnderline: false
 
 ! Pointer
 URxvt.pointerBlank: true
-
 
 *foreground:   #c5c8c6
 *background:   #000000
