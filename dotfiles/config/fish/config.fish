@@ -67,7 +67,7 @@ function ee; v ~/.emacs.d/init.el; end
 function ef; v ~/bootstrap/dotfiles/config/fish/config.fish; end
 function ei; v ~/bootstrap/dotfiles/i3/config; end
 function et; v ~/bootstrap/dotfiles/tmux.conf; end
-function ev; v ~/bootstrap/dotfiles/vimrc; end
+function ev; v ~/.vim/vimrc; end
 function ex; v ~/bootstrap/dotfiles/Xdefaults; end
 
 function setup-nvm -d "Init version of node"
@@ -78,7 +78,7 @@ end
 
 function setup-pyenv -d "Init version of python"
     if not set -q VIRTUAL_ENV
-	workon default
+        workon default2.7
     end
 end
 
