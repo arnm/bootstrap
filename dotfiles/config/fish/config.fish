@@ -84,9 +84,9 @@ end
 
 function setup-tmux -d "Attach || create tmux session"
     if test (echo $TMUX) = ""
-	tmux new-session -s $argv[1]
+	tmux -2 new-session -s $argv[1]
     end
-    tmux attach -t $argv[1]
+    tmux -2 attach -t $argv[1]
 end
 
 setup-nvm 0.10
