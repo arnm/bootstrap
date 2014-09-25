@@ -13,9 +13,9 @@ set fish_plugins autojump tmux
 
 function fish_greeting
     if test (which alsi 2> /dev/null)
-	alsi -a
+        alsi -a
     else
-	echo "You can customize this greeting..."
+        echo "You can customize this greeting..."
     end
 end
 
@@ -24,9 +24,9 @@ end
 
 function prepend-to-path -d "Prepend the given dir to PATH"
     if test -d $argv[1]
-	if not contains $argv[1] $PATH
-	    set -gx PATH "$argv[1]" $PATH
-	end
+        if not contains $argv[1] $PATH
+            set -gx PATH "$argv[1]" $PATH
+        end
     end
 end
 
@@ -62,6 +62,12 @@ function n; nautilus --no-desktop& $argv; end
 function rd; rm -rf $argv; end
 function v; vim $argv; end
 
+function p -d "Output with pygmentize if possible, otherwise cat"
+    if not pygmentize $argv 2> /dev/null
+        cat $argv
+    end
+end
+
 function eb; v ~/bootstrap/bootstrap; end
 function ee; v ~/.emacs.d/init.el; end
 function ef; v ~/bootstrap/dotfiles/config/fish/config.fish; end
@@ -72,9 +78,9 @@ function ex; v ~/bootstrap/dotfiles/Xdefaults; end
 
 function setup-nvm -d "Init version of node"
     if test (nvm use $argv[1]) = "N/A version is not installed yet"
-	nvm install $argv[1] > /dev/null
+        nvm install $argv[1] > /dev/null
     end
-end	
+end
 
 function setup-pyenv -d "Init version of python"
     if not set -q VIRTUAL_ENV
@@ -84,7 +90,7 @@ end
 
 function setup-tmux -d "Attach || create tmux session"
     if test (echo $TMUX) = ""
-	tmux -2 new-session -s $argv[1]
+        tmux -2 new-session -s $argv[1]
     end
     tmux -2 attach -t $argv[1]
 end

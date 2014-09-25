@@ -191,6 +191,7 @@ assign [class="^Subl\d+$"] $dev
 assign [class="^Emacs$"] $dev
 for_window [class="Emacs"], border 1pixel
 assign [class="^SmartGit/Hg$"] $dev
+assign [class="^mpv$"] $media
 
 # web workspace
 assign [class="^Chromium$"] $web
