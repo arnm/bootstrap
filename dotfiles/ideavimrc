@@ -1,0 +1,60 @@
+" Search --------------------------------------------------------- {{{
+
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+
+" }}}
+
+" Global Maps ---------------------------------------------------- {{{
+
+noremap j h
+noremap k j
+noremap l k
+noremap ; l
+
+nnoremap zk zj
+nnoremap zl zk
+
+inoremap jk <esc>
+inoremap kj <esc>
+
+" retain selection when indenting
+vnoremap < <gv
+vnoremap > >gv
+
+vnoremap F gq
+nnoremap F gqap
+
+nmap <Tab> :tabnext<cr>
+nmap <S-Tab> :tabprevious<cr>
+
+nnoremap <c-j> <c-w>h
+nnoremap <c-k> <c-w>j
+nnoremap <c-l> <c-w>k
+nnoremap <c-;> <c-w>l
+
+let mapleader = ','
+nnoremap <leader>e :
+nnoremap <leader>R :source %<cr>
+nnoremap <leader>s :split<cr>
+nnoremap <leader>v :vsplit<cr>
+nnoremap <leader>c :quit<cr>
+nnoremap <leader>q :qa<cr>
+nnoremap <leader>Q :qa!<cr>
+nnoremap <leader>w :w<cr>
+nnoremap <leader>h :help<Space>
+
+" }}}
+
+" Appearance ----------------------------------------------------- {{{
+set ruler
+set colorcolumn=80
+set showcmd
+set title
+
+set relativenumber
+set number
+
+" }}}
