@@ -34,9 +34,9 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 source /usr/local/bin/virtualenvwrapper.sh
 export WORKON_HOME=$HOME/.virtualenvs
 
-source $HOME/bootstrap/dotfiles/zsh/bvrc.sh
+# source $HOME/bootstrap/dotfiles/zsh/bvrc.sh
 
-export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/core_perl:/bin:/sbin
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/core_perl:/bin:/sbin
 
 alias c="cd"
 alias cl="clear"
@@ -73,7 +73,7 @@ else
 fi
 
 workon default-2.7
-cjava 1.7
-eval "$(rbenv init -)"
+# cjava 1.7
+# eval "$(rbenv init -)"
 
 
