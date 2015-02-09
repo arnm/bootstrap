@@ -53,6 +53,10 @@ alias et="vim ~/.tmux.conf"
 alias ex="vim ~/.Xdefaults"
 alias ez="vim ~/.zshrc"
 
+# Base16 Shell
+BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
+[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+
 # automatically attach/start a tmux session
 if [[ $TMUX == "" ]]; then
     tmux attach || tmux new -s sesh

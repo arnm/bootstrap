@@ -105,4 +105,4 @@ add-zsh-hook precmd arnm_precmd
 
 PROMPT=$'
 %{$purple%}%n%{$reset_color%} @ %{$orange%}%m%{$reset_color%} in %{$brightyellow%}%~%{$reset_color%} $vcs_info_msg_0_$(virtualenv_info)%{$reset_color%} $(nvm_info)%{$reset_color%} 🕒  %{$red%}%*%{$reset_color%}
-%{$brightyellow%}⟿ %{$reset_color%} '
+%{$brightyellow%}↳%{$reset_color%} '
