@@ -20,11 +20,11 @@ plugins=(git tmux node npm pip bower autojump zsh-syntax-highlighting mvn nyan)
 # User functions
 
 function cjava () {
-    export JAVA_HOME=$(/usr/libexec/java_home -v $1)
+export JAVA_HOME=$(/usr/libexec/java_home -v $1)
 }
 
 function applePressAndHold () {
-    defaults write -g ApplePressAndHoldEnabled -bool $1
+defaults write -g ApplePressAndHoldEnabled -bool $1
 }
 
 # User configuration
@@ -37,6 +37,10 @@ export WORKON_HOME=$HOME/.virtualenvs
 # source $HOME/bootstrap/dotfiles/zsh/bvrc.sh
 
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/core_perl:/bin:/sbin
+
+# supress pip errors
+export CFLAGS=-Qunused-arguments
+export CPPFLAGS=-Qunused-arguments
 
 alias c="cd"
 alias cl="clear"
@@ -54,26 +58,35 @@ alias ex="vim ~/.Xdefaults"
 alias ez="vim ~/.zshrc"
 
 # Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
+BASE16_SHELL="$HOME/.config/base16-shell/base16-tomorrow.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
 # automatically attach/start a tmux session
 if [[ $TMUX == "" ]]; then
-    tmux attach || tmux new -s sesh
+  tmux attach || tmux new -s sesh
 fi
 
 # load up default npm version
 if [[ $(nvm_ls_current) == none ]]; then
-    nvm use 0.10 > /dev/null
+  nvm use 0.10 > /dev/null
 fi
 
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-    applePressAndHold false
+  # faster key repeat
+  applePressAndHold false
+  # increase limit of open file descriptors
+  ulimit -n 2560
 elif [[ "$OSTYPE" == "cygwin" ]]; then
 elif [[ "$OSTYPE" == "msys" ]]; then
 elif [[ "$OSTYPE" == "win32" ]]; then
 else
+fi
+
+# Add GHC 7.8.4 to the PATH, via https://ghcformacosx.github.io/
+export GHC_DOT_APP="/Applications/ghc-7.8.4.app"
+if [ -d "$GHC_DOT_APP" ]; then
+  export PATH="${HOME}/.cabal/bin:${GHC_DOT_APP}/Contents/bin:${PATH}"
 fi
 
 workon default-2.7
