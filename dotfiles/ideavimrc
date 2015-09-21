@@ -17,8 +17,7 @@ noremap ; l
 nnoremap zk zj
 nnoremap zl zk
 
-inoremap jk <esc>
-inoremap kj <esc>
+inoremap fd <esc>
 
 " retain selection when indenting
 vnoremap < <gv

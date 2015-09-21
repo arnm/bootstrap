@@ -171,12 +171,13 @@ layers configuration."
   ;; look and feel
   (global-linum-mode)
   (linum-relative-toggle)
+  (golden-ratio-mode t)
 
   ;; remappings
-  (define-key evil-motion-state-map  ";" 'evil-forward-char)
-  (define-key evil-motion-state-map  "j" 'evil-backward-char)
-  (define-key evil-motion-state-map  "k" 'evil-next-line)
-  (define-key evil-motion-state-map  "l" 'evil-previous-line)
+  (define-key evil-motion-state-map "j" 'evil-backward-char)
+  (define-key evil-motion-state-map "k" 'evil-next-line)
+  (define-key evil-motion-state-map "l" 'evil-previous-line)
+  (define-key evil-motion-state-map ";" 'evil-forward-char)
 
   ;; terminal will use tmux bindings instead
   (when (display-graphic-p)
@@ -194,6 +195,21 @@ layers configuration."
     "gk" 'org-forward-heading-same-level
     "gl" 'org-backward-heading-same-level
     "g;" 'outline-next-visible-heading)
+
+  ;; neotree remappings
+  (add-hook 'neotree-mode-hook
+            (lambda ()
+
+              (define-key evil-motion-state-local-map "j" 'neotree-select-up-node)
+              (define-key evil-motion-state-local-map "k" 'neotree-next-line)
+              (define-key evil-motion-state-local-map "l" 'evil-previous-line)
+              (define-key evil-motion-state-local-map ";" 'neotree-enter)
+
+              (define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)
+              (define-key evil-normal-state-local-map (kbd "TAB") 'neotree-enter)
+              (define-key evil-normal-state-local-map (kbd "SPC") 'neotree-enter)
+              (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)))
+
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
