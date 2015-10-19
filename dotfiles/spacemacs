@@ -29,7 +29,9 @@
 
      ;; language layers
      clojure
+     elixir
      emacs-lisp
+     java
      markdown
      org
      )
@@ -209,6 +211,10 @@ layers configuration."
               (define-key evil-normal-state-local-map (kbd "TAB") 'neotree-enter)
               (define-key evil-normal-state-local-map (kbd "SPC") 'neotree-enter)
               (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)))
+
+  (custom-set-variables
+   '(eclim-eclipse-dirs (quote "/opt/homebrew-cask/Caskroom/eclipse-ide/4.5/Eclipse.app/Contents/MacOS/eclipse"))
+   '(eclim-executable "/opt/homebrew-cask/Caskroom/eclipse-ide/4.5/Eclipse.app/Contents/Eclipse/eclim"))
 
 )
 
