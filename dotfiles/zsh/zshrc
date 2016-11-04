@@ -15,7 +15,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git tmux node npm pip bower autojump zsh-syntax-highlighting mvn nyan)
+plugins=(git tmux autojump zsh-syntax-highlighting mvn)
 
 # User functions
 
@@ -52,13 +52,15 @@ alias e="emacs -nw"
 alias t="tree"
 alias v="vim"
 
-alias ev="vim ~/.vim/vimrc"
-alias et="vim ~/.tmux.conf"
-alias ex="vim ~/.Xdefaults"
-alias ez="vim ~/.zshrc"
+alias ev="emacs -nw ~/.vim/vimrc"
+alias et="emacs -nw ~/.tmux.conf"
+alias ex="emacs -nw ~/.Xdefaults"
+alias ez="emacs -nw ~/.zshrc"
+
+export EDITOR="emacs -nw"
 
 # Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/base16-eighties.dark.sh"
+BASE16_SHELL="$HOME/.config/base16-shell/base16-bright.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
 # automatically attach/start a tmux session
@@ -75,22 +77,21 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   # faster key repeat
   applePressAndHold false
+
   # increase limit of open file descriptors
   ulimit -n 2560
+
+  # don't send usage reports
+  HOMEBREW_NO_ANALYTICS=1
+
+  # ssh keys
+  eval "$(ssh-agent -s)"
 elif [[ "$OSTYPE" == "cygwin" ]]; then
 elif [[ "$OSTYPE" == "msys" ]]; then
 elif [[ "$OSTYPE" == "win32" ]]; then
 else
 fi
 
-# Add GHC 7.8.4 to the PATH, via https://ghcformacosx.github.io/
-export GHC_DOT_APP="/Applications/ghc-7.8.4.app"
-if [ -d "$GHC_DOT_APP" ]; then
-  export PATH="${HOME}/.cabal/bin:${GHC_DOT_APP}/Contents/bin:${PATH}"
-fi
-
 workon default-2.7
-# cjava 1.7
-# eval "$(rbenv init -)"
-
+cjava 1.8
 

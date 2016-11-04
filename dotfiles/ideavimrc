@@ -34,7 +34,7 @@ nnoremap <c-k> <c-w>j
 nnoremap <c-l> <c-w>k
 nnoremap <c-;> <c-w>l
 
-let mapleader = ','
+let mapleader = ","
 nnoremap <leader>e :
 nnoremap <leader>R :source %<cr>
 nnoremap <leader>s :split<cr>
